@@ -7,7 +7,7 @@ var registerButton = document.getElementById('registerLink');
 document.addEventListener('DOMContentLoaded', function() {
     if (registerButton) {
         registerButton.addEventListener('click', function() {
-            window.location.href = '/register/index.html';
+            window.location.href = '/pages/register/index.html';
         });
     }
 });

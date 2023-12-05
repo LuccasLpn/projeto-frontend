@@ -5,14 +5,11 @@ var usernameInput = document.querySelector('input[type="text"]');
 var birthDateInput = document.querySelector('input[type="date"]');
 var buttonRegister = document.querySelector('#buttonRegister');
 
-if (loginButton) {
-    loginButton.addEventListener('click', function() {
-        window.location.href = '/login/index.html';
-    });
+function pageLogin(){
+    window.location.href = '/pages/login/index.html';
 }
 
-function createUser() {
-    console.log('Cadastrando usuário...');
+async function createUser() {
     var url = 'http://localhost:8494/api/users/create';
     var dados = {
         username: usernameInput.value,
@@ -20,12 +17,11 @@ function createUser() {
         password: passwordInput.value,
         birthDate: new Date(birthDateInput.value)
     };
-    console.log('Dados:', dados);
     fazerRequisicaoPost(url, dados)
         .then(function(resposta) {
             console.log('Resposta:', resposta);
-            window.location.href = '/login/index.html';
-        })
+            window.location.href = '/pages/login/index.html';
+        })  
         .catch(function(error) {
             console.error('Erro na requisição:', error);
         });
