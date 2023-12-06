@@ -26,7 +26,11 @@ async function fazerLogin(){
     var url = 'http://localhost:8495/auth/signin';
     try {
         var resposta = await fazerRequisicaoPost(url, dados);
-        console.log('Resposta recebida:', resposta);
+        if (!resposta.token) {
+            console.log('Erro na resposta da requisição:', resposta);
+            return;
+        }
+        window.location.href = '/pages/home/index.html';
     } catch (error) {
         console.error('Erro no processamento da resposta:', error);
     }
