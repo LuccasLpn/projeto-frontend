@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-loginButton.addEventListener('click', async function() {
+async function fazerLogin(){
     var email = emailInput.value;
     var password = passwordInput.value;
     if (email === '' || password === '') {
@@ -23,14 +23,14 @@ loginButton.addEventListener('click', async function() {
         email: email,
         password: password
     };
-    var url = 'URL_DO_SEU_ENDPOINT';
+    var url = 'http://localhost:8495/auth/signin';
     try {
         var resposta = await fazerRequisicaoPost(url, dados);
-        console.log('Resposta do servidor:', resposta);
+        console.log('Resposta recebida:', resposta);
     } catch (error) {
         console.error('Erro no processamento da resposta:', error);
     }
-});
+}
 
 async function fazerRequisicaoPost(url, dados) {
     const configuracao = {
