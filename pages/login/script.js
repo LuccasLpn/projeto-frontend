@@ -4,15 +4,15 @@ var passwordInput = document.querySelector('input[type="password"]');
 var registerButton = document.getElementById('registerLink');
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     if (registerButton) {
-        registerButton.addEventListener('click', function() {
+        registerButton.addEventListener('click', function () {
             window.location.href = '/pages/register/index.html';
         });
     }
 });
 
-async function fazerLogin(){
+async function fazerLogin() {
     var email = emailInput.value;
     var password = passwordInput.value;
     if (email === '' || password === '') {
@@ -56,4 +56,8 @@ async function fazerRequisicaoPost(url, dados) {
         console.error('Erro na requisição:', error.message);
         throw error;
     }
+}
+
+async function forgetPassword(){
+    window.location.href = '/pages/forget/forget.html';
 }
